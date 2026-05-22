@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volavue — Intake</title>
+<meta name="description" content="A few structural questions about the decision you are facing. Your answers help prepare your Volavue structured decision review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* ---- Design tokens ----------------------------------------------------- */
+:root{
+  --bg:#e9e4d8; --surface:#f3efe6; --surface-2:#fbf8f0;
+  --text:#221f19; --muted:#5e594b; --soft:#6f6857;
+  --border:#d6cfbc; --line:#cabfa6;
+  --accent:#7e6020;
+  --gold:#9c7a2a;
+  --metal:linear-gradient(118deg,#6e5318 0%,#9c7a2a 24%,#d8bd72 47%,#f4e6af 52%,#d8bd72 57%,#9c7a2a 76%,#6e5318 100%);
+  --btn:linear-gradient(140deg,#cda964 0%,#b08e3a 40%,#8c6e26 100%);
+  --btn-text:#241d09;
+  --ring:rgba(150,118,40,.6);
+  --shadow:0 1px 2px rgba(40,33,15,.05),0 16px 40px rgba(40,33,15,.10);
+  --shadow-sm:0 1px 2px rgba(40,33,15,.06),0 8px 20px rgba(40,33,15,.07);
+}
+:root.dark{
+  --bg:#15140e; --surface:#1e1c14; --surface-2:#26231a;
+  --text:#f0ebdd; --muted:#a79f8a; --soft:#7d7763;
+  --border:#3a3526; --line:#332f22;
+  --accent:#d9bd71;
+  --gold:#cda85c;
+  --metal:linear-gradient(118deg,#8a6a28 0%,#b9923a 22%,#e8cf8a 47%,#fbf3d4 52%,#e8cf8a 57%,#b9923a 78%,#8a6a28 100%);
+  --btn:linear-gradient(140deg,#eccd86 0%,#c9a85a 42%,#a4843c 100%);
+  --btn-text:#1b1607;
+  --ring:rgba(222,184,98,.62);
+  --shadow:0 1px 2px rgba(0,0,0,.32),0 18px 44px rgba(0,0,0,.46);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3),0 10px 22px rgba(0,0,0,.34);
+}
+/* ---- Base -------------------------------------------------------------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Hanken Grotesk',system-ui,Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+input,textarea{font:inherit}
+img,svg{display:block;max-width:100%}
+::selection{background:rgba(156,122,42,.26)}
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.col{max-width:680px;margin:0 auto}
+/* ---- Type -------------------------------------------------------------- */
+h1,h2,h3{font-family:'Fraunces','Hanken Grotesk',Georgia,serif;font-weight:500;font-optical-sizing:auto;letter-spacing:-.018em;line-height:1.1;margin:0}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold)}
+/* ---- Header ------------------------------------------------------------ */
+.hdr{position:sticky;top:0;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.brand img{width:34px;height:auto}
+.brand-tx{display:flex;flex-direction:column;line-height:1}
+.brand-tx b{font-family:'Fraunces',serif;font-weight:500;font-size:21px;letter-spacing:.005em}
+.brand-tx span{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.nav{display:flex;align-items:center;gap:10px}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--surface);display:inline-grid;place-items:center;color:var(--text);transition:border-color .2s,background .2s,transform .2s}
+.icon-btn:hover{border-color:var(--gold);transform:translateY(-1px)}
+.icon-btn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}
+/* ---- Buttons ----------------------------------------------------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 26px;border-radius:7px;font-size:15px;font-weight:600;letter-spacing:.01em;border:1px solid transparent;transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
+.btn:active{transform:translateY(1px)}
+.btn-gold{position:relative;overflow:hidden;background:var(--btn);color:var(--btn-text);box-shadow:0 2px 10px rgba(120,90,20,.28),inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(0,0,0,.16)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(120,90,20,.34),inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.18)}
+.btn-gold::after{content:"";position:absolute;inset:0;background:linear-gradient(108deg,transparent 32%,rgba(255,255,255,.62) 48%,transparent 60%);transform:translateX(-130%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.btn-gold:hover::after{transform:translateX(130%)}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--text)}
+.btn-ghost:hover{border-color:var(--gold);transform:translateY(-2px);background:var(--surface)}
+/* ---- Side menu --------------------------------------------------------- */
+#overlay{position:fixed;inset:0;background:rgba(10,9,5,.46);z-index:60;opacity:0;visibility:hidden;transition:opacity .28s}
+#overlay.on{opacity:1;visibility:visible}
+#sideMenu{position:fixed;top:0;right:-340px;width:320px;max-width:86vw;height:100%;z-index:70;background:var(--surface);border-left:1px solid var(--border);box-shadow:var(--shadow);transition:right .32s cubic-bezier(.4,0,.15,1);padding:26px 28px}
+#sideMenu.on{right:0}
+.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+.menu-top b{font-family:'Fraunces',serif;font-weight:500;font-size:19px}
+#sideMenu nav{display:flex;flex-direction:column}
+#sideMenu nav a{font-family:'Fraunces',serif;font-size:21px;padding:13px 0;border-bottom:1px solid var(--line);transition:color .2s,padding-left .2s}
+#sideMenu nav a:last-child{border-bottom:0}
+#sideMenu nav a:hover{color:var(--accent);padding-left:8px}
+/* ---- Intro ------------------------------------------------------------- */
+.intro{padding:clamp(56px,9vw,116px) 0 clamp(8px,2vw,20px)}
+.intro .eyebrow{margin-bottom:22px}
+.intro h1{font-size:clamp(2.3rem,6vw,4rem);font-weight:500;letter-spacing:-.03em;line-height:1.05;max-width:16ch}
+.intro p{margin:20px 0 0;color:var(--muted);font-size:clamp(1.05rem,1.5vw,1.22rem);max-width:50ch}
+/* ---- Form -------------------------------------------------------------- */
+.formsec{padding:clamp(30px,5vw,52px) 0 clamp(54px,8vw,90px)}
+.sec-kicker{display:block;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text);margin-bottom:6px}
+.sec-kicker::before{content:"";display:inline-block;width:7px;height:7px;margin-right:9px;background:var(--metal);transform:rotate(45deg)}
+.field{padding:24px 0;border-top:1px solid var(--line)}
+.field:first-of-type{padding-top:14px}
+.field label{display:block;font-weight:600;font-size:1.06rem;line-height:1.45}
+.field label .qn{font-family:'Fraunces',serif;font-weight:500;color:var(--accent);margin-right:10px;font-size:1.15rem}
+.field input,.field textarea{width:100%;margin-top:13px;background:var(--surface-2);color:var(--text);border:1px solid var(--border);border-radius:9px;padding:13px 14px;transition:border-color .18s,box-shadow .18s}
+.field input::placeholder,.field textarea::placeholder{color:var(--soft)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--ring)}
+.field textarea{min-height:124px;resize:vertical;line-height:1.6}
+.count{margin-top:7px;font-size:12.5px;color:var(--soft);min-height:1.1em}
+.form-actions{margin-top:32px;padding-top:26px;border-top:1px solid var(--line);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+#status{color:var(--muted);margin:0;font-size:14px}
+/* ---- Footer ------------------------------------------------------------ */
+.ft{border-top:1px solid var(--line);padding:48px 0 56px}
+.ft-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.ft-brand b{font-family:'Fraunces',serif;font-weight:500;font-size:22px}
+.ft-brand p{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:34ch}
+.ft-nav{display:flex;gap:26px;flex-wrap:wrap}
+.ft-nav a{font-size:14px;color:var(--muted);transition:color .2s}
+.ft-nav a:hover{color:var(--accent)}
+.ft-base{margin-top:36px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--soft);letter-spacing:.04em}
+/* ---- Reveal ------------------------------------------------------------ */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+/* ---- Responsive -------------------------------------------------------- */
+@media (max-width:640px){.hdr .btn{display:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .js .reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="index.html" aria-label="Volavue home">
+      <img src="volavuelogo.png" alt="">
+      <span class="brand-tx"><b>Volavue</b><span>Clarity advisory</span></span>
+    </a>
+    <nav class="nav">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+        <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+      </button>
+      <a class="btn btn-ghost" href="index.html">Return Home</a>
+      <button class="icon-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div id="overlay"></div>
+<aside id="sideMenu" aria-label="Site menu" aria-hidden="true">
+  <div class="menu-top">
+    <b>Menu</b>
+    <button class="icon-btn" id="menuClose" type="button" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#framework">Framework</a>
+    <a href="index.html#testimonials">Testimonials</a>
+    <a href="intake.html">Intake</a>
+    <a href="booking.html">Booking</a>
+  </nav>
+</aside>
+
+<main id="top">
+
+  <section class="intro">
+    <div class="wrap"><div class="col">
+      <p class="eyebrow">Intake</p>
+      <h1>A few structural questions.</h1>
+      <p>Your answers carry over to the booking page and help us prepare for your session. There are no psychological deep dives here — only the structure of your situation. It takes a few minutes.</p>
+    </div></div>
+  </section>
+
+  <section class="formsec">
+    <div class="wrap"><div class="col reveal">
+      <span class="sec-kicker">Your situation</span>
+      <form id="prefillForm" class="form">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" type="email" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="description"><span class="qn">01</span>Briefly describe the decision you are facing.</label>
+          <textarea id="description" rows="3"></textarea>
+          <div class="count" id="descriptionCount"></div>
+        </div>
+        <div class="field">
+          <label for="keypeople"><span class="qn">02</span>Who are the key people involved?</label>
+          <input id="keypeople" type="text">
+          <div class="count" id="keypeopleCount"></div>
+        </div>
+        <div class="field">
+          <label for="feeling"><span class="qn">03</span>What feels most uncertain or unclear right now?</label>
+          <textarea id="feeling" rows="3"></textarea>
+          <div class="count" id="feelingCount"></div>
+        </div>
+        <div class="field">
+          <label for="timeline"><span class="qn">04</span>Is there a timeline or deadline influencing this decision?</label>
+          <input id="timeline" type="text">
+          <div class="count" id="timelineCount"></div>
+        </div>
+        <div class="field">
+          <label for="outcome"><span class="qn">05</span>What outcome are you most concerned about?</label>
+          <textarea id="outcome" rows="3"></textarea>
+          <div class="count" id="outcomeCount"></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-gold" type="submit">Continue to Booking</button>
+          <p id="status"></p>
+        </div>
+      </form>
+    </div></div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <b>Volavue</b>
+        <p>Structured clarity for complex personal and professional decisions.</p>
+      </div>
+      <nav class="ft-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#framework">Framework</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="intake.html">Intake</a>
+        <a href="booking.html">Booking</a>
+      </nav>
+    </div>
+    <div class="ft-base">
+      <span>Volavue. &copy; 2026</span>
+      <span>Pause. Lay the situation out clearly. Then decide.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- Theme ------------------------------------------------------------- */
+(function(){
+  var root=document.documentElement,btn=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon');
+  var sun='<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M21.5 12h-2.6M5.1 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1 5.3 5.3"/></g>';
+  var moon='<path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 13.4A8 8 0 0 1 10.6 4 7 7 0 1 0 20 13.4Z"/>';
+  function set(mode){var d=mode==='dark';root.classList.toggle('dark',d);if(icon)icon.innerHTML=d?sun:moon;if(btn)btn.setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode');}
+  var mq=window.matchMedia('(prefers-color-scheme: dark)');
+  set(mq.matches?'dark':'light');
+  mq.addEventListener('change',function(e){set(e.matches?'dark':'light');});
+  btn&&btn.addEventListener('click',function(){set(root.classList.contains('dark')?'light':'dark');});
+})();
+
+/* ---- Side menu --------------------------------------------------------- */
+(function(){
+  var open=document.getElementById('menuToggle'),close=document.getElementById('menuClose'),
+      menu=document.getElementById('sideMenu'),ov=document.getElementById('overlay');
+  function show(o){
+    menu.classList.toggle('on',o);ov.classList.toggle('on',o);
+    menu.setAttribute('aria-hidden',o?'false':'true');
+    open.setAttribute('aria-expanded',o?'true':'false');
+    if(o)close.focus();else open.focus();
+  }
+  open.addEventListener('click',function(){show(true);});
+  close.addEventListener('click',function(){show(false);});
+  ov.addEventListener('click',function(){show(false);});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){show(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('on'))show(false);});
+})();
+
+/* ---- Scroll reveal ----------------------------------------------------- */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
+    els.forEach(function(e){e.classList.add('in');});return;
+  }
+  var io=new IntersectionObserver(function(ents){
+    ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:'0px 0px -4% 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+
+/* ---- Form: character limits + submit ----------------------------------- */
+(function(){
+  var limits={description:1000,keypeople:1000,feeling:1000,timeline:1000,outcome:1000};
+  function wireLimit(id,msgId){
+    var el=document.getElementById(id),msg=document.getElementById(msgId);
+    var update=function(){
+      if(el.value.length>limits[id]) el.value=el.value.slice(0,limits[id]);
+      var left=limits[id]-el.value.length;
+      msg.textContent=el.value.length>=900 ? left+' characters left' : '';
+    };
+    el.addEventListener('input',update);update();
+  }
+  wireLimit('description','descriptionCount');
+  wireLimit('keypeople','keypeopleCount');
+  wireLimit('feeling','feelingCount');
+  wireLimit('timeline','timelineCount');
+  wireLimit('outcome','outcomeCount');
+
+  document.getElementById('prefillForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var get=function(id){return document.getElementById(id).value.trim();};
+    var name=get('name'),email=get('email'),
+        q1=get('description'),q2=get('keypeople'),q3=get('feeling'),q4=get('timeline'),q5=get('outcome');
+    var params=new URLSearchParams();
+    if(name) params.set('name',name);
+    if(email) params.set('email',email);
+    if(q1) params.set('q1',q1);
+    if(q2) params.set('q2',q2);
+    if(q3) params.set('q3',q3);
+    if(q4) params.set('q4',q4);
+    if(q5) params.set('q5',q5);
+    var qs=params.toString();
+    document.getElementById('status').textContent='Sending to booking page…';
+    window.location.href='booking.html'+(qs?'?'+qs:'');
+  });
+})();
+</script>
+</body>
+</html>

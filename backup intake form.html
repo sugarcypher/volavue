@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volavue Intake</title>
+<style>
+:root{--bg:#d8d8db;--text:#17202a;--muted:#66707a;--surface:#eef0f2;--border:#b8bcc1;--accent:#b58a3e;--shadow:0 1px 2px rgba(0,0,0,.06),0 10px 28px rgba(0,0,0,.08)}
+:root.dark{--bg:#101214;--text:#f2f0eb;--muted:#b8b2a7;--surface:#1a1b1d;--border:#4b4336;--accent:#d6b15c;--shadow:0 1px 2px rgba(0,0,0,.18),0 10px 28px rgba(0,0,0,.28)}
+*{box-sizing:border-box}body{margin:0;font-family:'Source Sans 3',Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}img,svg{display:block;max-width:100%}
+.container{max-width:920px;margin:0 auto;padding:28px 24px 40px}.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:var(--shadow)}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--border);background:var(--surface);text-decoration:none;color:inherit}.primary{background:linear-gradient(135deg,var(--accent),#d9bb6d);border-color:transparent;color:#111}.section-title{font-size:26px;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:700}.form-grid{display:grid;gap:12px;margin-top:14px}.field{display:grid;gap:8px}input,textarea{width:100%;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);padding:12px 12px}textarea{min-height:120px}.footer{padding:26px 0 0;text-align:center;color:var(--muted)}h1{margin-top:0;font-size:20px;line-height:1.2;font-weight:700;letter-spacing:-.01em}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 22px;position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:1px solid var(--border)}.brand{display:flex;align-items:center;gap:14px;min-width:0}.brand-text{display:flex;flex-direction:column;min-width:0}.brand-text strong{font-size:18px;line-height:1.1;letter-spacing:.02em}.brand-text span{font-size:13px;color:var(--muted)}.nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.icon-btn{width:44px;height:44px;padding:0;border-radius:999px;border:1px solid var(--border);background:var(--surface);display:inline-grid;place-items:center;color:var(--text)}.icon-btn svg{width:20px;height:20px;stroke-width:2.2;stroke:currentColor;fill:none}.dark .icon-btn{color:#f4efe4}.dark .icon-btn svg{stroke:#f4efe4}.bullet{padding-left:22px;color:var(--muted)}.bullet li{margin:8px 0}\n</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="Volavue home">
+      <img src="volavuelogo.png" alt="Volavue" width="44" height="44" style="border-radius:18px;object-fit:cover;display:block;">
+      <span class="brand-text"><strong>Volavue</strong><span>Clarity advisory</span></span>
+    </a>
+    <div class="nav">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle light and dark mode"><svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"></svg></button>
+      <a class="btn primary" href="booking.html">Return to Booking</a>
+    </div>
+  </header>
+  <section class="card">
+    <div class="section-title">Intake Questions</div>
+    <form class="form-grid" id="prefillForm">
+        <div class="field"><label for="name">Name<input id="name" type="text" placeholder=""></label></div>
+        <div class="field"><label for="email">Email<input id="email" type="email" placeholder=""></label></div>
+        <div class="field"><label for="description">1. Briefly describe the decision you are facing.<textarea id="description" rows="3" placeholder=""></textarea></label><div id="descriptionCount" style="color:var(--muted);font-size:13px"></div></div>
+        <div class="field"><label for="keypeople">2. Who are the key people involved?<input id="keypeople" type="text" placeholder=""></label><div id="keypeopleCount" style="color:var(--muted);font-size:13px"></div></div>
+        <div class="field"><label for="feeling">3. What feels most uncertain or unclear right now?<textarea id="feeling" rows="3" placeholder=""></textarea></label><div id="feelingCount" style="color:var(--muted);font-size:13px"></div></div>
+        <div class="field"><label for="timeline">4. Is there a timeline or deadline influencing this decision?<input id="timeline" type="text" placeholder=""></label><div id="timelineCount" style="color:var(--muted);font-size:13px"></div></div>
+        <div class="field"><label for="outcome">5. What outcome are you most concerned about?<textarea id="outcome" rows="3" placeholder=""></textarea></label><div id="outcomeCount" style="color:var(--muted);font-size:13px"></div></div>
+        <button class="btn primary" type="submit">Send to Booking</button>
+    </form>
+    <p id="status" style="margin-top:12px;color:var(--muted)"></p>
+  </section>
+  <footer class="footer">Volavue. © 2026</footer>
+</div>
+<script>
+const root=document.documentElement,btn=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon');
+const sun=`<path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><circle cx="12" cy="12" r="5"/>`;
+const moon=`<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+function setTheme(mode){const dark=mode==='dark';root.classList.toggle('dark',dark);if(icon){icon.innerHTML=dark?sun:moon;}if(btn){btn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');}}
+const prefersDark=window.matchMedia('(prefers-color-scheme: dark)');setTheme(prefersDark.matches?'dark':'light');prefersDark.addEventListener('change',e=>setTheme(e.matches?'dark':'light'));btn&&btn.addEventListener('click',()=>setTheme(root.classList.contains('dark')?'light':'dark'));
+const limits={description:1000,keypeople:1000,feeling:1000,timeline:1000,outcome:1000};
+function wireLimit(id,msgId){const el=document.getElementById(id);const msg=document.getElementById(msgId);const update=()=>{if(el.value.length>limits[id]) el.value=el.value.slice(0,limits[id]); const left=limits[id]-el.value.length; msg.textContent=el.value.length>=990 ? `${left} characters left` : '';}; el.addEventListener('input',update); update();}
+wireLimit('description','descriptionCount');wireLimit('keypeople','keypeopleCount');wireLimit('feeling','feelingCount');wireLimit('timeline','timelineCount');wireLimit('outcome','outcomeCount');
+document.getElementById('prefillForm').addEventListener('submit', function(e){e.preventDefault();const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const q1=document.getElementById('description').value.trim();const q2=document.getElementById('keypeople').value.trim();const q3=document.getElementById('feeling').value.trim();const q4=document.getElementById('timeline').value.trim();const q5=document.getElementById('outcome').value.trim();const params = new URLSearchParams();if(name) params.set('name', name);if(email) params.set('email', email);if(q1) params.set('q1', q1);if(q2) params.set('q2', q2);if(q3) params.set('q3', q3);if(q4) params.set('q4', q4);if(q5) params.set('q5', q5);const target = 'booking.html' + (params.toString() ? '?' + params.toString() : '');document.getElementById('status').textContent = 'Sending to booking page...';window.location.href = target;});
+</script>
+</body>
+</html>
