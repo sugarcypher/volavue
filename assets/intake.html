@@ -4,10 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Volavue — Intake</title>
-<meta name="description" content="A few structural questions about the decision you are facing. Your answers help prepare your Volavue structured decision review.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="See the route to the finish line from a flawless perspective. A few structural questions to prepare your Volavue decision review.">
+<link rel="canonical" href="https://volavue.fyi/intake.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Volavue">
+<meta property="og:url" content="https://volavue.fyi/intake.html">
+<meta property="og:title" content="Volavue — Intake">
+<meta property="og:description" content="See the route to the finish line from a flawless perspective. A few structural questions before your session.">
+<meta property="og:image" content="https://volavue.fyi/volavuelogo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Volavue — Intake">
+<meta name="twitter:description" content="See the route to the finish line from a flawless perspective.">
+<meta name="twitter:image" content="https://volavue.fyi/volavuelogo.png">
+<link rel="stylesheet" href="fonts/fonts.css">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* ---- Design tokens ----------------------------------------------------- */
@@ -225,7 +234,8 @@ h1,h2,h3{font-family:'Fraunces','Hanken Grotesk',Georgia,serif;font-weight:500;f
     <div class="ft-grid">
       <div class="ft-brand">
         <b>Volavue</b>
-        <p>Structured clarity for complex personal and professional decisions.</p>
+        <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:15px;margin:8px 0 0;max-width:36ch">See the route to the finish line from a flawless perspective.</p>
+        <p style="font-size:13px;color:var(--soft);margin:14px 0 0">A product of ThinkWell Labs, LLC.</p>
       </div>
       <nav class="ft-nav">
         <a href="index.html">Home</a>
@@ -233,6 +243,12 @@ h1,h2,h3{font-family:'Fraunces','Hanken Grotesk',Georgia,serif;font-weight:500;f
         <a href="index.html#testimonials">Testimonials</a>
         <a href="intake.html">Intake</a>
         <a href="booking.html">Booking</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
     <div class="ft-base">
@@ -305,19 +321,14 @@ h1,h2,h3{font-family:'Fraunces','Hanken Grotesk',Georgia,serif;font-weight:500;f
   document.getElementById('prefillForm').addEventListener('submit',function(e){
     e.preventDefault();
     var get=function(id){return document.getElementById(id).value.trim();};
-    var name=get('name'),email=get('email'),
-        q1=get('description'),q2=get('keypeople'),q3=get('feeling'),q4=get('timeline'),q5=get('outcome');
-    var params=new URLSearchParams();
-    if(name) params.set('name',name);
-    if(email) params.set('email',email);
-    if(q1) params.set('q1',q1);
-    if(q2) params.set('q2',q2);
-    if(q3) params.set('q3',q3);
-    if(q4) params.set('q4',q4);
-    if(q5) params.set('q5',q5);
-    var qs=params.toString();
+    var data={
+      name:get('name'),email:get('email'),
+      q1:get('description'),q2:get('keypeople'),q3:get('feeling'),q4:get('timeline'),q5:get('outcome')
+    };
+    // Keep PII out of the URL/history/logs/referrer — hand off via sessionStorage.
+    try{ sessionStorage.setItem('vv_intake',JSON.stringify(data)); }catch(err){}
     document.getElementById('status').textContent='Sending to booking page…';
-    window.location.href='booking.html'+(qs?'?'+qs:'');
+    window.location.href='booking.html';
   });
 })();
 </script>

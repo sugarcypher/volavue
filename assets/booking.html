@@ -4,10 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Volavue — Schedule a Session</title>
-<meta name="description" content="Schedule your structured decision review with Volavue. Choose a time, complete payment, and bring one decision and its context.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="See the route to the finish line from a flawless perspective. Schedule your structured decision review with Volavue.">
+<link rel="canonical" href="https://volavue.fyi/booking.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Volavue">
+<meta property="og:url" content="https://volavue.fyi/booking.html">
+<meta property="og:title" content="Volavue — Schedule a Session">
+<meta property="og:description" content="See the route to the finish line from a flawless perspective. Schedule your structured decision review.">
+<meta property="og:image" content="https://volavue.fyi/volavuelogo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Volavue — Schedule a Session">
+<meta name="twitter:description" content="See the route to the finish line from a flawless perspective.">
+<meta name="twitter:image" content="https://volavue.fyi/volavuelogo.png">
+<link rel="stylesheet" href="fonts/fonts.css">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* ---- Design tokens ----------------------------------------------------- */
@@ -122,6 +131,20 @@ h1,h2,h3{font-family:'Fraunces','Hanken Grotesk',Georgia,serif;font-weight:500;f
 #my-cal-inline{width:100%;min-height:560px;overflow:auto}
 /* ---- Payment ----------------------------------------------------------- */
 .pay-note{margin-top:14px;font-size:14px;color:var(--soft)}
+/* ---- Cal placeholder + cookie consent --------------------------------- */
+.cal-placeholder{padding:42px 24px;text-align:center;color:var(--muted);min-height:300px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.cal-placeholder p{margin:0;max-width:48ch;align-self:center}
+.cal-placeholder a{color:var(--accent);border-bottom:1px solid var(--gold)}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--surface-2);border-top:1px solid var(--border);box-shadow:var(--shadow);padding:16px 0;animation:cb-slideup .4s cubic-bezier(.2,.7,.2,1)}
+.cookie-banner[hidden]{display:none}
+@keyframes cb-slideup{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.cookie-banner-in{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.cookie-banner p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5;max-width:62ch}
+.cookie-banner p strong{color:var(--text)}
+.cookie-banner a{color:var(--accent);border-bottom:1px solid var(--gold)}
+.cookie-banner-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-banner .btn{min-height:42px;padding:0 18px;font-size:14px}
+@media (prefers-reduced-motion:reduce){.cookie-banner{animation:none}}
 /* ---- Footer ------------------------------------------------------------ */
 .ft{border-top:1px solid var(--line);padding:48px 0 56px}
 .ft-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
@@ -224,22 +247,34 @@ main,.sec{scroll-margin-top:84px}
       <p>Use the live calendar below to choose a time that works for you.</p>
       <div class="stage" style="margin-top:18px">
         <!-- TODO: volavuedemotest/15min is a 15-minute DEMO Cal.com event. Before launch, replace the namespace, calLink and slug with your real Cal account and a 60-90 minute session event. -->
-        <div id="my-cal-inline"></div>
+        <div id="my-cal-inline">
+          <div id="cal-placeholder" class="cal-placeholder">
+            <p>The scheduler is loaded from <strong>Cal.com</strong> and uses cookies.</p>
+            <p>Accept the cookie notice below to load the calendar, or contact us directly to schedule: <a href="mailto:volavue@volavue.fyi">volavue@volavue.fyi</a>.</p>
+          </div>
+        </div>
         <script type="text/javascript">
-          var vvParams = new URLSearchParams(window.location.search);
-          var vvConfig = {"layout":"month_view","useSlotsViewOnSmallScreen":"true"};
-          var vvName = vvParams.get('name'); if(vvName) vvConfig.name = vvName;
-          var vvEmail = vvParams.get('email'); if(vvEmail) vvConfig.email = vvEmail;
-          var vvNotes = [['q1','Decision'],['q2','Key people'],['q3','Most uncertain'],['q4','Timeline'],['q5','Outcome concern']].map(function(p){var v=vvParams.get(p[0]);return v?p[1]+': '+v:null;}).filter(Boolean).join('\n');
-          if(vvNotes) vvConfig.notes = vvNotes;
-          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
-          Cal("init", "15min", {origin:"https://app.cal.eu"});
-          Cal.ns["15min"]("inline", {
-            elementOrSelector:"#my-cal-inline",
-            config: vvConfig,
-            calLink: "volavuedemotest/15min",
-          });
-          Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          // Cal.com embed is deferred until explicit cookie consent (see consent block in the page script below).
+          window.vvLoadCal = function(intake){
+            var vvConfig = {"layout":"month_view","useSlotsViewOnSmallScreen":"true"};
+            if(intake){
+              if(intake.name) vvConfig.name = intake.name;
+              if(intake.email) vvConfig.email = intake.email;
+              var labels = {q1:'Decision',q2:'Key people',q3:'Most uncertain',q4:'Timeline',q5:'Outcome concern'};
+              var notes = Object.keys(labels).map(function(k){return intake[k]?labels[k]+': '+intake[k]:null;}).filter(Boolean).join('\n');
+              if(notes) vvConfig.notes = notes;
+            }
+            var holder=document.getElementById('cal-placeholder');
+            if(holder && holder.parentNode) holder.parentNode.removeChild(holder);
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
+            Cal("init", "15min", {origin:"https://app.cal.eu"});
+            Cal.ns["15min"]("inline", {
+              elementOrSelector:"#my-cal-inline",
+              config: vvConfig,
+              calLink: "volavuedemotest/15min",
+            });
+            Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          };
         </script>
       </div>
     </div></div>
@@ -263,7 +298,8 @@ main,.sec{scroll-margin-top:84px}
     <div class="ft-grid">
       <div class="ft-brand">
         <b>Volavue</b>
-        <p>Structured clarity for complex personal and professional decisions.</p>
+        <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:15px;margin:8px 0 0;max-width:36ch">See the route to the finish line from a flawless perspective.</p>
+        <p style="font-size:13px;color:var(--soft);margin:14px 0 0">A product of ThinkWell Labs, LLC.</p>
       </div>
       <nav class="ft-nav">
         <a href="index.html">Home</a>
@@ -271,6 +307,12 @@ main,.sec{scroll-margin-top:84px}
         <a href="index.html#testimonials">Testimonials</a>
         <a href="intake.html">Intake</a>
         <a href="booking.html">Booking</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
     <div class="ft-base">
@@ -311,12 +353,21 @@ main,.sec{scroll-margin-top:84px}
 })();
 
 /* ---- Intake summary (renders URL params with textContent, XSS-safe) ---- */
+// Pull intake answers from sessionStorage (not URL params) — keeps PII out of history/logs/referrer.
+window.vvIntake = null;
 (function(){
-  var params=new URLSearchParams(window.location.search);
+  var data;
+  try{ var raw=sessionStorage.getItem('vv_intake'); if(raw) data=JSON.parse(raw); }catch(err){}
+  window.vvIntake = data;
+  if(!data){
+    document.getElementById('intakeSummary').style.display='none';
+    document.getElementById('intakePrompt').style.display='block';
+    return;
+  }
   var fields=[['name','Name'],['email','Email'],['q1','Decision'],['q2','Key people'],['q3','Most uncertain'],['q4','Timeline'],['q5','Outcome concern']];
   var list=document.getElementById('intakeSummaryList'),any=false;
   fields.forEach(function(f){
-    var v=params.get(f[0]);
+    var v=data[f[0]];
     if(!v) return;
     any=true;
     var dt=document.createElement('dt');dt.textContent=f[1];
@@ -325,6 +376,41 @@ main,.sec{scroll-margin-top:84px}
   });
   document.getElementById('intakeSummary').style.display=any?'block':'none';
   document.getElementById('intakePrompt').style.display=any?'none':'block';
+})();
+
+// Cookie consent: gate the Cal.com embed (and future third parties) behind explicit consent.
+(function(){
+  var key='vv_consent';
+  var banner=document.getElementById('cookieBanner');
+  var placeholder=document.getElementById('cal-placeholder');
+  var acceptBtn=document.getElementById('cookieAccept');
+  var declineBtn=document.getElementById('cookieDecline');
+  function renderDeclined(){
+    if(!placeholder) return;
+    while(placeholder.firstChild) placeholder.removeChild(placeholder.firstChild);
+    var p1=document.createElement('p');p1.textContent='You declined cookies, so the scheduler cannot load here.';
+    var p2=document.createElement('p');p2.textContent='Contact us directly to schedule: ';
+    var a=document.createElement('a');a.href='mailto:volavue@volavue.fyi';a.textContent='volavue@volavue.fyi';
+    p2.appendChild(a);
+    placeholder.appendChild(p1);placeholder.appendChild(p2);
+  }
+  function set(value){
+    try{ localStorage.setItem(key,value); }catch(err){}
+    if(banner) banner.hidden=true;
+    if(value==='accepted' && window.vvLoadCal){ window.vvLoadCal(window.vvIntake); }
+    if(value==='declined'){ renderDeclined(); }
+  }
+  var current=null;
+  try{ current=localStorage.getItem(key); }catch(err){}
+  if(current==='accepted' && window.vvLoadCal){
+    window.vvLoadCal(window.vvIntake);
+  }else if(current==='declined'){
+    renderDeclined();
+  }else if(banner){
+    banner.hidden=false;
+  }
+  if(acceptBtn) acceptBtn.addEventListener('click',function(){set('accepted');});
+  if(declineBtn) declineBtn.addEventListener('click',function(){set('declined');});
 })();
 
 /* ---- Scroll reveal ----------------------------------------------------- */
@@ -339,5 +425,15 @@ main,.sec{scroll-margin-top:84px}
   els.forEach(function(e){io.observe(e);});
 })();
 </script>
+
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <div class="cookie-banner-in">
+    <p>This page embeds <strong>Cal.com</strong> for scheduling and <strong>Stripe</strong> for payment — both set cookies. Accept to enable them, or decline and contact us at <a href="mailto:volavue@volavue.fyi">volavue@volavue.fyi</a>.</p>
+    <div class="cookie-banner-actions">
+      <button class="btn btn-ghost" id="cookieDecline" type="button">Decline</button>
+      <button class="btn btn-gold" id="cookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

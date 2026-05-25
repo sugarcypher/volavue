@@ -1,0 +1,5 @@
+# Security contact for volavue.fyi — RFC 9116
+Contact: mailto:volavue@volavue.fyi
+Expires: 2027-05-21T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://volavue.fyi/.well-known/security.txt

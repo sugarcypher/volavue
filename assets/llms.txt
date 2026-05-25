@@ -1,0 +1,31 @@
+# Volavue
+
+> Volavue is a structured decision-review service built on the Personal Decision
+> Topology framework. In a single 60-90 minute session it maps the forces,
+> relationships, pressures, underlying structure and probable consequence paths
+> shaping a complex personal or professional decision — so the decision is made
+> with clarity rather than under pressure.
+
+Volavue is a product of ThinkWell Labs, LLC. A session is a contained, structured
+analysis — not therapy, ongoing coaching, or crisis intervention. The tone is
+calm and minimal by design: no prescriptions, no pressure.
+
+## Pages
+
+- [Home](https://volavue.fyi/): The service, who it is for, and the five-dimension framework.
+- [Intake](https://volavue.fyi/intake.html): Five structural questions about the decision, completed before a session.
+- [Booking](https://volavue.fyi/booking.html): Schedule and pay for a session.
+
+## The Personal Decision Topology framework
+
+Five structural dimensions are examined together:
+
+- **Forces at Play** — motivations, incentives, fears and constraints shaping behaviour.
+- **Relational Dynamics** — dependencies, asymmetries, obligations and recurring patterns between people.
+- **Active Pressures** — present-tense pressures on judgment and timing.
+- **Underlying Structure** — unspoken incentives, hidden conflicts and systemic arrangements.
+- **Probable Consequence Paths** — how choices unfold over time, including second-order effects and irreversible thresholds.
+
+## Contact
+
+- Email: volavue@volavue.fyi

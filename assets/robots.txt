@@ -1,0 +1,5 @@
+# https://volavue.fyi/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://volavue.fyi/sitemap.xml
