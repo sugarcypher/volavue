@@ -211,7 +211,7 @@ main,.sec{scroll-margin-top:84px}
     <div class="wrap"><div class="col">
       <p class="eyebrow">Booking</p>
       <h1>Schedule your session.</h1>
-      <p>Reserve your structured decision review. Complete payment to confirm your session, then pick a time from the live calendar below. Any intake answers you have shared carry through to your booking.</p>
+      <p>Choose a time for your structured decision review. Payment is completed here, and any intake answers you have shared carry through to your booking.</p>
     </div></div>
   </section>
 
@@ -237,18 +237,6 @@ main,.sec{scroll-margin-top:84px}
 
   <section class="sec">
     <div class="wrap"><div class="col reveal">
-      <span class="sec-kicker">Reserve</span>
-      <h2>Reserve your session</h2>
-      <p>Complete payment in secure Stripe checkout to confirm your session. You will return here to pick a time from the calendar.</p>
-      <p style="margin-top:22px">
-        <a class="btn btn-gold" href="https://book.stripe.com/7sYbJ10gpd4z1fT03icEw08" rel="noopener" target="_blank">Pay &amp; reserve →</a>
-      </p>
-      <p style="margin-top:14px;font-size:13px;color:var(--soft)">Secure checkout by Stripe. Volavue never sees your card details.</p>
-    </div></div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap"><div class="col reveal">
       <span class="sec-kicker">Choose a time</span>
       <div id="intakeSummary" class="intake-box" style="display:none">
         <strong>Your intake summary</strong>
@@ -256,9 +244,9 @@ main,.sec{scroll-margin-top:84px}
       </div>
       <p id="intakePrompt" class="intake-prompt" style="display:none">Completing the short <a href="intake.html">intake form</a> first helps us prepare for your session.</p>
       <h2>Pick your session time</h2>
-      <p>After completing payment above, use the live calendar to pick a time. Your name and any intake answers will carry through.</p>
+      <p>Use the live calendar below to choose a time that works for you.</p>
       <div class="stage" style="margin-top:18px">
-        <!-- Cal account: next-level-etpkqv on cal.com, event slug 60min. Payment is handled via Stripe Payment Link in the Reserve section above (decoupled from Cal). -->
+        <!-- Cal account: next-level-etpkqv on cal.com, event slug 60min. Payment is collected by Cal's native Stripe integration. -->
         <div id="my-cal-inline">
           <div id="cal-placeholder" class="cal-placeholder">
             <p>The scheduler is loaded from <strong>Cal.com</strong> and uses cookies.</p>
@@ -292,7 +280,15 @@ main,.sec{scroll-margin-top:84px}
     </div></div>
   </section>
 
-  </main>
+  <section class="sec">
+    <div class="wrap"><div class="col reveal">
+      <span class="sec-kicker">Payment</span>
+      <h2>Handled in the booking flow</h2>
+      <p>Payment is collected during the Cal.com booking above, via Cal.com's Stripe integration. Volavue never sees your card details. Your session is confirmed once payment is received.</p>
+    </div></div>
+  </section>
+
+</main>
 
 <footer class="ft">
   <div class="wrap">
@@ -429,7 +425,7 @@ window.vvIntake = null;
 
 <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
   <div class="cookie-banner-in">
-    <p>This page embeds <strong>Cal.com</strong> for scheduling, which sets cookies. Accept to load the calendar, or decline and contact us at <a href="mailto:volavue@volavue.fyi">volavue@volavue.fyi</a>. Payment opens in a separate secure <strong>Stripe</strong> page.</p>
+    <p>This page embeds <strong>Cal.com</strong> for scheduling and <strong>Stripe</strong> for payment — both set cookies. Accept to enable them, or decline and contact us at <a href="mailto:volavue@volavue.fyi">volavue@volavue.fyi</a>.</p>
     <div class="cookie-banner-actions">
       <button class="btn btn-ghost" id="cookieDecline" type="button">Decline</button>
       <button class="btn btn-gold" id="cookieAccept" type="button">Accept</button>
