@@ -131,7 +131,7 @@ h1,h2,h3{font-family:'Fraunces','Hanken Grotesk',Georgia,serif;font-weight:500;f
 #my-cal-inline{width:100%;min-height:560px;overflow:auto}
 /* ---- Payment ----------------------------------------------------------- */
 .pay-note{margin-top:14px;font-size:14px;color:var(--soft)}
-/* ---- Cal placeholder + cookie consent --------------------------------- */
+/* ---- Cal placeholder --------------------------------------------------- */
 .cal-placeholder{padding:42px 24px;text-align:center;color:var(--muted);min-height:300px;display:flex;flex-direction:column;justify-content:center;gap:10px}
 .cal-placeholder p{margin:0;max-width:48ch;align-self:center}
 .cal-placeholder a{color:var(--accent);border-bottom:1px solid var(--gold)}
@@ -244,7 +244,7 @@ main,.sec{scroll-margin-top:84px}
           </div>
         </div>
         <script type="text/javascript">
-          // Cal.com embed is deferred until explicit cookie consent (see consent block in the page script below).
+          // Cal.com embed auto-loads on DOMContentLoaded via the auto-load block in the page script below.
           window.vvLoadCal = function(intake){
             var vvConfig = {"layout":"month_view","useSlotsViewOnSmallScreen":"true"};
             if(intake){

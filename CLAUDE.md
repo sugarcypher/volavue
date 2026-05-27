@@ -60,18 +60,22 @@ so `assets/` has its own copy.
 - **Theme** follows `prefers-color-scheme` and a toggle button. It does **not** persist a
   choice to `localStorage`; reloads revert to the OS preference.
 - **Booking calendar**: `assets/booking.html` embeds Cal.com via `app.cal.com`,
-  `calLink: "next-level-etpkqv/60min"` — the real ThinkWell Labs Cal account and the
-  60-minute session event.
+  `calLink: "next-level-etpkqv/60-minute-structured-decision-review"` — the real
+  ThinkWell Labs Cal account and the 60-minute session event. The embed **auto-loads
+  on page load** (no cookie banner — Cal cookies are treated as strictly necessary).
 - **Payment**: handled inside the Cal.com booking flow via Cal's native Stripe
-  integration — there is no separate Stripe Payment Link. The Payment section on
-  `booking.html` is informational only.
-- **Intake prefill**: `intake.html` passes answers as URL params; `booking.html` reads
-  them with `URLSearchParams`, renders them into the intake-summary panel with
-  `textContent` (never `innerHTML` — the values are attacker-controllable), and feeds
-  name/email/notes into the Cal embed's `config` object as runtime strings. Never
-  interpolate those params into the embed `<script>` source.
-- Fonts load from Google Fonts: **Fraunces** (display serif, optical sizing) and
-  **Hanken Grotesk** (body).
+  integration. Cal-Stripe is wired through Stripe Connect (credential id 2136543 in
+  Cal). The event is configured `ON_BOOKING` for $349 USD with a 2-day refund
+  policy. A standalone Stripe Payment Link
+  (`https://book.stripe.com/7sYbJ10gpd4z1fT03icEw08`) exists in the same Stripe
+  account but is **not wired to the site**.
+- **Intake prefill**: `intake.html` saves answers to `sessionStorage`; `booking.html`
+  reads them, renders them into the intake-summary panel with `textContent` (never
+  `innerHTML` — the values are attacker-controllable), and feeds name/email/notes
+  into the Cal embed's `config` object as runtime strings. Never interpolate those
+  values into the embed `<script>` source.
+- Fonts are **self-hosted** under `assets/fonts/` — **Fraunces** (display serif,
+  optical sizing) and **Hanken Grotesk** (body). No request to Google Fonts.
 
 ## Previewing
 

@@ -6,8 +6,8 @@ This document captures the pre-launch security posture for the Volavue site
 to apply at the edge (Cloudflare), and the manual checks you should walk
 through before going live.
 
-It is **not** a substitute for legal advice. The legal pages remain templates
-that need review by qualified counsel before launch.
+It is **not** a substitute for legal advice. The legal pages are published as-is;
+review with counsel is recommended but not a launch blocker.
 
 ---
 
@@ -46,8 +46,10 @@ control is even applied.
 - **Self-hosted fonts.** No request to Google Fonts on page load.
 - **Intake answers travel via `sessionStorage`**, not the URL — keeping PII
   out of browser history, server logs, and referrer headers.
-- **Cookie consent gate.** The Cal.com embed (and later Stripe) only loads
-  after the visitor explicitly accepts the cookie notice.
+- **Strictly-necessary cookies only.** Cal.com is the only third-party embed
+  on the booking page. Its cookies are required for the scheduler to work
+  and qualify as strictly-necessary under GDPR — no consent banner is
+  shown. We set no analytics, advertising or tracking cookies of our own.
 - **Cloudflare in front.** DDoS, bot, and bad-actor noise is absorbed at
   the edge before reaching the origin.
 
@@ -149,8 +151,11 @@ tighten later if/when we refactor inline styles out):
 default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.eu https://app.cal.com https://*.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://app.cal.eu https://app.cal.com https://*.stripe.com; font-src 'self'; connect-src 'self' https://app.cal.eu https://app.cal.com https://*.stripe.com; frame-src https://app.cal.eu https://app.cal.com https://*.stripe.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 ```
 
-Test the CSP with `Report-Only` first if you want to verify nothing is
-blocked. After verifying, switch to `Content-Security-Policy` (enforced).
+The CSP is currently **enforced** (not Report-Only). Verified against a
+real-money smoke test of the Cal+Stripe booking flow on 2026-05-26. If
+new third-party origins are added later (e.g. analytics), test with
+`Content-Security-Policy-Report-Only` first and only flip to enforced
+after a real-browser walk of the affected page shows zero violations.
 
 ---
 

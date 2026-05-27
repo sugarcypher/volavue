@@ -1,12 +1,25 @@
 # Volavue — Launch Runbook
 
-The site code is finished and security-hardened. This document is the human-only
-checklist: the things only you can do because they need access to GitHub,
-Cloudflare, Porkbun, Cal.com and Stripe dashboards. Work through it in order.
+> **Status as of 2026-05-26: LAUNCHED.** `https://volavue.fyi` is live with TLS,
+> security headers, enforced CSP, Cal.com booking, and atomic Cal-Stripe payment
+> at $349 USD per session. The end-to-end flow was verified with a real $1 test
+> charge (then refunded; the test booking was cancelled). The remainder of this
+> document is now reference material — useful if the site goes down (rollback
+> via Cloudflare Pages), if anything moves (CDN, registrar), or if the legal
+> pages need updating with counsel.
+>
+> Outstanding (non-blocking) items:
+> - **Auto-deploy from GitHub.** Currently deploys are pushed manually via
+>   `wrangler pages deploy assets --project-name volavue`. One dashboard click
+>   (Pages → volavue → Settings → Connect to Git) wires up auto-deploy.
+> - **API key rotation.** Both the Cal.com API key and the Stripe restricted
+>   key used during launch should be rotated before this `.env.local` file is
+>   shared or before machines change hands.
 
-If you hit something that doesn't match these instructions (a UI rename, a
-moved button), stop — don't guess. The order matters because later steps depend
-on values produced by earlier ones.
+The original launch checklist below is kept verbatim for reference — it is the
+order in which the integrations were originally brought up. Step-by-step
+useful if you ever need to migrate to a new Cloudflare account, switch
+registrars, or rebuild from scratch.
 
 ---
 
