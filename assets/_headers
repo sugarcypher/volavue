@@ -1,0 +1,26 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(self "https://*.stripe.com")
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com https://*.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://app.cal.com https://*.stripe.com; font-src 'self'; connect-src 'self' https://app.cal.com https://*.stripe.com; frame-src https://app.cal.com https://*.stripe.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# Long-cache the immutable, content-addressed-ish font payloads.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Logo is overwritten rarely; one week is fine.
+/volavuelogo.png
+  Cache-Control: public, max-age=604800
+
+# RFC 9116 security.txt and machine-readable manifests stay fresh.
+/.well-known/security.txt
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/llms.txt
+  Cache-Control: public, max-age=3600
