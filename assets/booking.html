@@ -135,16 +135,6 @@ h1,h2,h3{font-family:'Fraunces','Hanken Grotesk',Georgia,serif;font-weight:500;f
 .cal-placeholder{padding:42px 24px;text-align:center;color:var(--muted);min-height:300px;display:flex;flex-direction:column;justify-content:center;gap:10px}
 .cal-placeholder p{margin:0;max-width:48ch;align-self:center}
 .cal-placeholder a{color:var(--accent);border-bottom:1px solid var(--gold)}
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--surface-2);border-top:1px solid var(--border);box-shadow:var(--shadow);padding:16px 0;animation:cb-slideup .4s cubic-bezier(.2,.7,.2,1)}
-.cookie-banner[hidden]{display:none}
-@keyframes cb-slideup{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.cookie-banner-in{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.cookie-banner p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5;max-width:62ch}
-.cookie-banner p strong{color:var(--text)}
-.cookie-banner a{color:var(--accent);border-bottom:1px solid var(--gold)}
-.cookie-banner-actions{display:flex;gap:10px;flex-wrap:wrap}
-.cookie-banner .btn{min-height:42px;padding:0 18px;font-size:14px}
-@media (prefers-reduced-motion:reduce){.cookie-banner{animation:none}}
 /* ---- Footer ------------------------------------------------------------ */
 .ft{border-top:1px solid var(--line);padding:48px 0 56px}
 .ft-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
@@ -249,8 +239,8 @@ main,.sec{scroll-margin-top:84px}
         <!-- Cal account: next-level-etpkqv on cal.com, event slug 60-minute-structured-decision-review. Payment is collected by Cal's native Stripe integration. -->
         <div id="my-cal-inline">
           <div id="cal-placeholder" class="cal-placeholder">
-            <p>The scheduler is loaded from <strong>Cal.com</strong> and uses cookies.</p>
-            <p>Accept the cookie notice below to load the calendar, or contact us directly to schedule: <a href="mailto:volavue@volavue.fyi">volavue@volavue.fyi</a>.</p>
+            <p>Loading the scheduler from <strong>Cal.com</strong>…</p>
+            <p>If it does not appear, contact us directly: <a href="mailto:volavue@volavue.fyi">volavue@volavue.fyi</a>.</p>
           </div>
         </div>
         <script type="text/javascript">
@@ -375,39 +365,10 @@ window.vvIntake = null;
   document.getElementById('intakePrompt').style.display=any?'none':'block';
 })();
 
-// Cookie consent: gate the Cal.com embed (and future third parties) behind explicit consent.
+// Auto-load Cal.com embed. Cal cookies are strictly necessary for the scheduler to function.
 (function(){
-  var key='vv_consent';
-  var banner=document.getElementById('cookieBanner');
-  var placeholder=document.getElementById('cal-placeholder');
-  var acceptBtn=document.getElementById('cookieAccept');
-  var declineBtn=document.getElementById('cookieDecline');
-  function renderDeclined(){
-    if(!placeholder) return;
-    while(placeholder.firstChild) placeholder.removeChild(placeholder.firstChild);
-    var p1=document.createElement('p');p1.textContent='You declined cookies, so the scheduler cannot load here.';
-    var p2=document.createElement('p');p2.textContent='Contact us directly to schedule: ';
-    var a=document.createElement('a');a.href='mailto:volavue@volavue.fyi';a.textContent='volavue@volavue.fyi';
-    p2.appendChild(a);
-    placeholder.appendChild(p1);placeholder.appendChild(p2);
-  }
-  function set(value){
-    try{ localStorage.setItem(key,value); }catch(err){}
-    if(banner) banner.hidden=true;
-    if(value==='accepted' && window.vvLoadCal){ window.vvLoadCal(window.vvIntake); }
-    if(value==='declined'){ renderDeclined(); }
-  }
-  var current=null;
-  try{ current=localStorage.getItem(key); }catch(err){}
-  if(current==='accepted' && window.vvLoadCal){
-    window.vvLoadCal(window.vvIntake);
-  }else if(current==='declined'){
-    renderDeclined();
-  }else if(banner){
-    banner.hidden=false;
-  }
-  if(acceptBtn) acceptBtn.addEventListener('click',function(){set('accepted');});
-  if(declineBtn) declineBtn.addEventListener('click',function(){set('declined');});
+  try{ localStorage.removeItem('vv_consent'); }catch(err){}
+  if(window.vvLoadCal){ window.vvLoadCal(window.vvIntake); }
 })();
 
 /* ---- Scroll reveal ----------------------------------------------------- */
@@ -423,14 +384,5 @@ window.vvIntake = null;
 })();
 </script>
 
-<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <div class="cookie-banner-in">
-    <p>This page embeds <strong>Cal.com</strong> for scheduling and <strong>Stripe</strong> for payment — both set cookies. Accept to enable them, or decline and contact us at <a href="mailto:volavue@volavue.fyi">volavue@volavue.fyi</a>.</p>
-    <div class="cookie-banner-actions">
-      <button class="btn btn-ghost" id="cookieDecline" type="button">Decline</button>
-      <button class="btn btn-gold" id="cookieAccept" type="button">Accept</button>
-    </div>
-  </div>
-</div>
 </body>
 </html>
