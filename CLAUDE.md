@@ -59,13 +59,12 @@ so `assets/` has its own copy.
   fail. A `prefers-reduced-motion` block disables the gold sheen and the scroll reveals.
 - **Theme** follows `prefers-color-scheme` and a toggle button. It does **not** persist a
   choice to `localStorage`; reloads revert to the OS preference.
-- **Booking calendar**: `assets/booking.html` embeds Cal.com via `app.cal.eu`,
-  `calLink: "volavuedemotest/15min"` — still a 15-min DEMO event. Replace the namespace,
-  calLink and slug with the real Cal account + a 60–90 min event before launch (see the
-  `TODO` comment by the embed).
-- **Payment**: `booking.html` has a Payment section whose "Pay for your session" button
-  has a placeholder `href="#"`. Set it to a real Stripe Payment Link before launch (see
-  the `TODO` comment).
+- **Booking calendar**: `assets/booking.html` embeds Cal.com via `app.cal.com`,
+  `calLink: "next-level-etpkqv/60min"` — the real ThinkWell Labs Cal account and the
+  60-minute session event.
+- **Payment**: handled inside the Cal.com booking flow via Cal's native Stripe
+  integration — there is no separate Stripe Payment Link. The Payment section on
+  `booking.html` is informational only.
 - **Intake prefill**: `intake.html` passes answers as URL params; `booking.html` reads
   them with `URLSearchParams`, renders them into the intake-summary panel with
   `textContent` (never `innerHTML` — the values are attacker-controllable), and feeds

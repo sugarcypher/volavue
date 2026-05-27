@@ -246,7 +246,7 @@ main,.sec{scroll-margin-top:84px}
       <h2>Pick your session time</h2>
       <p>Use the live calendar below to choose a time that works for you.</p>
       <div class="stage" style="margin-top:18px">
-        <!-- TODO: volavuedemotest/15min is a 15-minute DEMO Cal.com event. Before launch, replace the namespace, calLink and slug with your real Cal account and a 60-90 minute session event. -->
+        <!-- Cal account: next-level-etpkqv on cal.com, event slug 60min. Payment is collected by Cal's native Stripe integration. -->
         <div id="my-cal-inline">
           <div id="cal-placeholder" class="cal-placeholder">
             <p>The scheduler is loaded from <strong>Cal.com</strong> and uses cookies.</p>
@@ -266,12 +266,12 @@ main,.sec{scroll-margin-top:84px}
             }
             var holder=document.getElementById('cal-placeholder');
             if(holder && holder.parentNode) holder.parentNode.removeChild(holder);
-            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
-            Cal("init", "15min", {origin:"https://app.cal.eu"});
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "15min", {origin:"https://app.cal.com"});
             Cal.ns["15min"]("inline", {
               elementOrSelector:"#my-cal-inline",
               config: vvConfig,
-              calLink: "volavuedemotest/15min",
+              calLink: "next-level-etpkqv/60min",
             });
             Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
           };
@@ -283,11 +283,8 @@ main,.sec{scroll-margin-top:84px}
   <section class="sec">
     <div class="wrap"><div class="col reveal">
       <span class="sec-kicker">Payment</span>
-      <h2>Complete your payment</h2>
-      <p>Payment is due at booking. Once you have chosen a time above, complete payment through the secure Stripe link below. Your session is confirmed once payment is received.</p>
-      <!-- TODO: replace href="#" with your Stripe Payment Link (e.g. https://buy.stripe.com/xxxxxxxxxxxx). Until then this button does not lead to a payment page. -->
-      <a class="btn btn-gold" id="payButton" href="#" style="margin-top:20px">Pay for your session</a>
-      <p class="pay-note">Payment is handled by Stripe. Volavue never sees your card details.</p>
+      <h2>Handled in the booking flow</h2>
+      <p>Payment is collected during the Cal.com booking above, via Cal.com's Stripe integration. Volavue never sees your card details. Your session is confirmed once payment is received.</p>
     </div></div>
   </section>
 
