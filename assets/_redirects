@@ -1,19 +1,5 @@
-# Pretty URLs → the underlying .html files. 301 so caches and search engines learn the canonical form.
-/booking            /booking.html            301
-/intake             /intake.html             301
-/privacy            /privacy.html            301
-/terms              /terms.html              301
-/cookies            /cookies.html            301
-/disclaimer         /disclaimer.html         301
-/accessibility      /accessibility.html      301
-/contact            /contact.html            301
-
-# Trailing-slash variants of the same.
-/booking/           /booking.html            301
-/intake/            /intake.html             301
-/privacy/           /privacy.html            301
-/terms/             /terms.html              301
-/cookies/           /cookies.html            301
-/disclaimer/        /disclaimer.html         301
-/accessibility/     /accessibility.html      301
-/contact/           /contact.html            301
+# Cloudflare Pages handles extensionless URLs natively:
+#   - /booking serves booking.html with 200
+#   - /booking.html 308-redirects to /booking
+# Adding explicit /booking -> /booking.html 301 rules here causes a redirect loop.
+# Keep this file present (so Pages keeps applying its default behavior) but empty.
