@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VolaVue">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6e5318"/>
+      <stop offset="24%" stop-color="#9c7a2a"/>
+      <stop offset="50%" stop-color="#f4e6af"/>
+      <stop offset="76%" stop-color="#9c7a2a"/>
+      <stop offset="100%" stop-color="#6e5318"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#15140e"/>
+  <!-- outer V -->
+  <path d="M11 17 L32 49 L53 17" fill="none" stroke="url(#g)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- inner V echoing the double-V -->
+  <path d="M21 18 L32 35 L43 18" fill="none" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+  <!-- horizon / aerial contour -->
+  <path d="M9 55 Q32 49 55 55" fill="none" stroke="url(#g)" stroke-width="1" opacity=".5"/>
+</svg>

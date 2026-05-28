@@ -1,4 +1,4 @@
-# Volavue — Launch Runbook
+# VolaVue — Launch Runbook
 
 > **Status as of 2026-05-26: LAUNCHED.** `https://volavue.fyi` is live with TLS,
 > security headers, enforced CSP, Cal.com booking, and atomic Cal-Stripe payment

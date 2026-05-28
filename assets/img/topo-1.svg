@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- Section 1 — wide concentric contour rings, single high ridge -->
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+    <ellipse cx="220" cy="430" rx="380" ry="300"/>
+    <ellipse cx="220" cy="430" rx="320" ry="248"/>
+    <ellipse cx="220" cy="430" rx="262" ry="200"/>
+    <ellipse cx="220" cy="430" rx="208" ry="154"/>
+    <ellipse cx="220" cy="430" rx="156" ry="112"/>
+    <ellipse cx="220" cy="430" rx="108" ry="74"/>
+    <ellipse cx="220" cy="430" rx="64" ry="42"/>
+    <ellipse cx="220" cy="430" rx="26" ry="16"/>
+  </g>
+  <!-- gold accent: ridge peak -->
+  <circle cx="220" cy="430" r="4" fill="#9c7a2a"/>
+  <!-- subtle reference cross-hair -->
+  <g stroke="currentColor" stroke-width=".6" opacity=".35">
+    <line x1="220" y1="408" x2="220" y2="452"/>
+    <line x1="198" y1="430" x2="242" y2="430"/>
+  </g>
+</svg>

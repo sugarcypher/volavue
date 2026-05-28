@@ -1,6 +1,6 @@
-# Volavue — Security & Privacy Hardening
+# VolaVue — Security & Privacy Hardening
 
-This document captures the pre-launch security posture for the Volavue site
+This document captures the pre-launch security posture for the VolaVue site
 (`volavue.fyi`), operated by **ThinkWell Labs, LLC** (Wyoming). It explains
 *what the architecture protects against by design*, the headers and settings
 to apply at the edge (Cloudflare), and the manual checks you should walk

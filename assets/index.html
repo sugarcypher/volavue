@@ -3,19 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Volavue — Clarity advisory</title>
-<meta name="description" content="See the route to the finish line from a flawless perspective. Volavue gives a structured review of your situation before you move forward.">
+<title>VolaVue — Clarity above. Decisions beyond.</title>
+<meta name="description" content="Clarity above. Decisions beyond. VolaVue is a structured review of your situation — the view from above — before you move forward.">
 <link rel="canonical" href="https://volavue.fyi/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Volavue">
+<meta property="og:site_name" content="VolaVue">
 <meta property="og:url" content="https://volavue.fyi/">
-<meta property="og:title" content="Volavue — Clarity advisory">
-<meta property="og:description" content="See the route to the finish line from a flawless perspective. A structured review of your situation before you move forward.">
+<meta property="og:title" content="VolaVue — Clarity above. Decisions beyond.">
+<meta property="og:description" content="The view from above. A structured review of your situation before you move forward.">
 <meta property="og:image" content="https://volavue.fyi/volavuelogo.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Volavue — Clarity advisory">
-<meta name="twitter:description" content="See the route to the finish line from a flawless perspective.">
+<meta name="twitter:title" content="VolaVue — Clarity above. Decisions beyond.">
+<meta name="twitter:description" content="The view from above. A structured review before you move forward.">
 <meta name="twitter:image" content="https://volavue.fyi/volavuelogo.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="fonts/fonts.css">
 <script>document.documentElement.classList.add('js')</script>
 <style>
@@ -183,10 +184,26 @@ h1,h2,h3,.display{
 .trust-cell:nth-child(4){transition-delay:.21s}
 
 /* ---- Editorial sections ------------------------------------------------ */
-.sec{border-top:1px solid var(--line);padding:clamp(56px,9vw,110px) 0}
-.sec-grid{display:grid;grid-template-columns:minmax(0,216px) minmax(0,1fr);gap:clamp(28px,6vw,84px)}
+.sec{border-top:1px solid var(--line);padding:clamp(56px,9vw,110px) 0;position:relative;overflow:hidden}
+.sec-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,216px) minmax(0,1fr);gap:clamp(28px,6vw,84px)}
 .sec-head{position:relative}
+
+/* parallax aerial-map background, left ~44% of section */
+.sec-bg{
+  position:absolute;left:0;top:-14%;height:128%;width:44%;
+  background-repeat:no-repeat;background-position:center;background-size:cover;
+  color:#7a6d4d;
+  opacity:.42;
+  pointer-events:none;z-index:0;
+  will-change:transform;
+  mask-image:linear-gradient(to right,#000 55%,transparent 96%);
+  -webkit-mask-image:linear-gradient(to right,#000 55%,transparent 96%);
+}
+:root.dark .sec-bg{color:#a79f8a;opacity:.34}
+@media (max-width:860px){.sec-bg{display:none}}
+
 .sec-num{font-family:'Fraunces',serif;font-size:clamp(3rem,5vw,4.3rem);font-weight:400;line-height:.9;display:block}
+.sec-num .hash{font-size:.5em;vertical-align:.16em;margin-right:.06em;letter-spacing:0}
 .sec-kicker{
   display:block;margin-top:14px;font-size:12px;font-weight:600;
   letter-spacing:.2em;text-transform:uppercase;color:var(--text);
@@ -340,9 +357,9 @@ h1,h2,h3,.display{
 
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="#top" aria-label="Volavue home">
+    <a class="brand" href="#top" aria-label="VolaVue home">
       <img src="volavuelogo.png" alt="">
-      <span class="brand-tx"><b>Volavue</b><span>Clarity advisory</span></span>
+      <span class="brand-tx"><b>VolaVue</b><span>Clarity advisory</span></span>
     </a>
     <nav class="nav">
       <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
@@ -378,9 +395,9 @@ h1,h2,h3,.display{
   <!-- Hero -->
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow center">Structured decision review</p>
+      <p class="eyebrow center">Clarity above &middot; Decisions beyond</p>
       <h1>Clear thinking for <em>complex</em> decisions.</h1>
-      <p class="hero-sub">A structured review of your situation before you move forward.</p>
+      <p class="hero-sub">The view from above. A structured review of your situation before you move forward.</p>
       <div class="actions">
         <a class="btn btn-gold" href="booking.html">Schedule a Session</a>
         <a class="btn btn-ghost" href="#framework">See the Framework</a>
@@ -419,9 +436,10 @@ h1,h2,h3,.display{
 
   <!-- 01 What this is -->
   <section class="sec">
+    <div class="sec-bg" style="background-image:url('img/topo-1.svg')"></div>
     <div class="wrap sec-grid">
       <div class="sec-head reveal">
-        <span class="sec-num metal">01</span>
+        <span class="sec-num metal"><span class="hash">#</span>1</span>
         <span class="sec-kicker">What this is</span>
       </div>
       <div class="sec-body reveal measure">
@@ -434,9 +452,10 @@ h1,h2,h3,.display{
 
   <!-- 02 Who this is for -->
   <section class="sec">
+    <div class="sec-bg" style="background-image:url('img/topo-2.svg')"></div>
     <div class="wrap sec-grid">
       <div class="sec-head reveal">
-        <span class="sec-num metal">02</span>
+        <span class="sec-num metal"><span class="hash">#</span>2</span>
         <span class="sec-kicker">Who this is for</span>
       </div>
       <div class="sec-body reveal">
@@ -462,9 +481,10 @@ h1,h2,h3,.display{
 
   <!-- 03 What you leave with -->
   <section class="sec">
+    <div class="sec-bg" style="background-image:url('img/topo-3.svg')"></div>
     <div class="wrap sec-grid">
       <div class="sec-head reveal">
-        <span class="sec-num metal">03</span>
+        <span class="sec-num metal"><span class="hash">#</span>3</span>
         <span class="sec-kicker">What you leave with</span>
       </div>
       <div class="sec-body reveal">
@@ -482,9 +502,10 @@ h1,h2,h3,.display{
 
   <!-- 04 Framework -->
   <section class="sec" id="framework">
+    <div class="sec-bg" style="background-image:url('img/topo-4.svg')"></div>
     <div class="wrap sec-grid">
       <div class="sec-head reveal">
-        <span class="sec-num metal">04</span>
+        <span class="sec-num metal"><span class="hash">#</span>4</span>
         <span class="sec-kicker">The framework</span>
       </div>
       <div class="sec-body reveal">
@@ -529,7 +550,7 @@ h1,h2,h3,.display{
 
           <div class="fw-panel">
             <div class="fw-fade" id="fwFade" aria-live="polite">
-              <span class="p-num" id="fwNum">Dimension 01</span>
+              <span class="p-num" id="fwNum">Dimension #1</span>
               <h3 id="fwName">Forces at Play</h3>
               <p id="fwText">This dimension identifies motivations, incentives, fears, and constraints shaping the behavior of the people involved. It clarifies what is driving movement in the situation, whether stated openly or operating in the background.</p>
             </div>
@@ -542,9 +563,10 @@ h1,h2,h3,.display{
 
   <!-- 05 The session -->
   <section class="sec">
+    <div class="sec-bg" style="background-image:url('img/topo-5.svg')"></div>
     <div class="wrap sec-grid">
       <div class="sec-head reveal">
-        <span class="sec-num metal">05</span>
+        <span class="sec-num metal"><span class="hash">#</span>5</span>
         <span class="sec-kicker">The session</span>
       </div>
       <div class="sec-body reveal">
@@ -562,9 +584,10 @@ h1,h2,h3,.display{
 
   <!-- Testimonials -->
   <section class="sec" id="testimonials">
+    <div class="sec-bg" style="background-image:url('img/topo-6.svg')"></div>
     <div class="wrap sec-grid">
       <div class="sec-head reveal">
-        <span class="sec-num metal">06</span>
+        <span class="sec-num metal"><span class="hash">#</span>6</span>
         <span class="sec-kicker">In their words</span>
       </div>
       <div class="sec-body reveal">
@@ -613,8 +636,8 @@ h1,h2,h3,.display{
   <div class="wrap">
     <div class="ft-grid">
       <div class="ft-brand">
-        <b>Volavue</b>
-        <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:15px;margin:8px 0 0;max-width:36ch">See the route to the finish line from a flawless perspective.</p>
+        <b>VolaVue</b>
+        <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:15px;margin:8px 0 0;max-width:36ch">Clarity above. Decisions beyond.</p>
         <p style="font-size:13px;color:var(--soft);margin:14px 0 0">A product of ThinkWell Labs, LLC.</p>
       </div>
       <nav class="ft-nav">
@@ -632,7 +655,7 @@ h1,h2,h3,.display{
       </nav>
     </div>
     <div class="ft-base">
-      <span>Volavue. &copy; 2026</span>
+      <span>VolaVue. &copy; 2026</span>
       <span>Pause. Lay the situation out clearly. Then decide.</span>
     </div>
   </div>
@@ -671,11 +694,11 @@ h1,h2,h3,.display{
 /* ---- Interactive topology --------------------------------------------- */
 (function(){
   var DIMS=[
-    {n:'01',name:'Forces at Play',text:'This dimension identifies motivations, incentives, fears, and constraints shaping the behavior of the people involved. It clarifies what is driving movement in the situation, whether stated openly or operating in the background.'},
-    {n:'02',name:'Relational Dynamics',text:'This dimension examines the structure between people: dependencies, asymmetries, obligations, alignments, and recurring patterns. It helps show where leverage, friction, or distortion may be entering the decision environment.'},
-    {n:'03',name:'Active Pressures',text:'This dimension looks at present-tense pressures affecting judgment and timing. These can include financial strain, deadlines, social expectations, emotional intensity, or external demands that compress the decision space.'},
-    {n:'04',name:'Underlying Structure',text:'This dimension focuses on what is not immediately visible but materially influential. It may include unspoken incentives, hidden conflicts, identity tensions, or systemic arrangements that shape outcomes beneath the surface.'},
-    {n:'05',name:'Probable Consequence Paths',text:'This dimension models how different choices are likely to unfold over time. It is used to clarify second-order effects, irreversible thresholds, and feedback loops before action is taken.'}
+    {n:'#1',name:'Forces at Play',text:'This dimension identifies motivations, incentives, fears, and constraints shaping the behavior of the people involved. It clarifies what is driving movement in the situation, whether stated openly or operating in the background.'},
+    {n:'#2',name:'Relational Dynamics',text:'This dimension examines the structure between people: dependencies, asymmetries, obligations, alignments, and recurring patterns. It helps show where leverage, friction, or distortion may be entering the decision environment.'},
+    {n:'#3',name:'Active Pressures',text:'This dimension looks at present-tense pressures affecting judgment and timing. These can include financial strain, deadlines, social expectations, emotional intensity, or external demands that compress the decision space.'},
+    {n:'#4',name:'Underlying Structure',text:'This dimension focuses on what is not immediately visible but materially influential. It may include unspoken incentives, hidden conflicts, identity tensions, or systemic arrangements that shape outcomes beneath the surface.'},
+    {n:'#5',name:'Probable Consequence Paths',text:'This dimension models how different choices are likely to unfold over time. It is used to clarify second-order effects, irreversible thresholds, and feedback loops before action is taken.'}
   ];
   var nodes=[].slice.call(document.querySelectorAll('.vv-node'));
   var edges=[].slice.call(document.querySelectorAll('.vv-edge'));
@@ -777,6 +800,36 @@ h1,h2,h3,.display{
     ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e);});
+})();
+
+/* ---- Parallax aerial-map backgrounds ---------------------------------- */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var bgs=[].slice.call(document.querySelectorAll('.sec-bg'));
+  if(!bgs.length||!('IntersectionObserver'in window))return;
+  var visible=new Set();
+  var raf=0;
+  function update(){
+    raf=0;
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    visible.forEach(function(el){
+      var r=el.getBoundingClientRect();
+      var center=r.top+r.height/2;
+      var offset=(center-vh/2)*-0.18;
+      el.style.transform='translate3d(0,'+offset.toFixed(1)+'px,0)';
+    });
+  }
+  function schedule(){if(!raf)raf=requestAnimationFrame(update);}
+  var io=new IntersectionObserver(function(ents){
+    ents.forEach(function(en){
+      if(en.isIntersecting)visible.add(en.target);else visible.delete(en.target);
+    });
+    schedule();
+  },{rootMargin:'20% 0px 20% 0px'});
+  bgs.forEach(function(b){io.observe(b);});
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  update();
 })();
 </script>
 </body>

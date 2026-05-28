@@ -4,8 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Volavue — a static marketing + booking website for a "clarity advisory" service built
-around the **Personal Decision Topology** framework. Plain HTML/CSS/JS: no build system,
+VolaVue (double-V capitalisation; the name combines *vola*, Italian/Latin "fly",
+with *vue*, French "view" — "the view from above"). The brand tagline is
+**"Clarity above. Decisions beyond."** A static marketing + booking website for a
+structured decision-review service built around the **Personal Decision
+Topology** framework. Plain HTML/CSS/JS: no build system,
 no package manager, no framework.
 
 ## Where the real site lives
@@ -22,8 +25,8 @@ There are two parallel copies of the page files, and they are NOT equivalent:
 `content.rtf` is the source-of-truth copy + brand brief from the client. `testimonials.csv`
 is sample data only (not wired into any page).
 
-The repo root also contains sync-conflict temp files (`.Volavue.zip.bsXBzs`, etc.) and
-`Volavue.zip` — ignore these.
+The repo root also contains sync-conflict temp files (`.VolaVue.zip.bsXBzs`, etc.) and
+`VolaVue.zip` — ignore these.
 
 ## The site (`assets/`)
 

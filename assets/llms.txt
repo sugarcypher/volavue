@@ -1,12 +1,14 @@
-# Volavue
+# VolaVue
 
-> Volavue is a structured decision-review service built on the Personal Decision
-> Topology framework. In a single 60-90 minute session it maps the forces,
-> relationships, pressures, underlying structure and probable consequence paths
-> shaping a complex personal or professional decision — so the decision is made
-> with clarity rather than under pressure.
+> VolaVue — clarity above, decisions beyond. A structured decision-review
+> service built on the Personal Decision Topology framework. In a single
+> 60-90 minute session it maps the forces, relationships, pressures, underlying
+> structure and probable consequence paths shaping a complex personal or
+> professional decision — so the decision is made with clarity rather than
+> under pressure. The name "VolaVue" comes from *vola* (fly, Italian/Latin) +
+> *vue* (view, French): the view from above.
 
-Volavue is a product of ThinkWell Labs, LLC. A session is a contained, structured
+VolaVue is a product of ThinkWell Labs, LLC. A session is a contained, structured
 analysis — not therapy, ongoing coaching, or crisis intervention. The tone is
 calm and minimal by design: no prescriptions, no pressure.
 

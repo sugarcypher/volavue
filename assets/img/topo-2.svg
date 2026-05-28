@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- Section 2 — paired ridges, contour valley between them. Accent: a dotted GPS waypoint route -->
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
+    <path d="M -40 260 Q 120 200 250 280 T 520 240 T 720 320"/>
+    <path d="M -40 320 Q 130 260 260 340 T 530 300 T 720 380"/>
+    <path d="M -40 380 Q 140 320 270 400 T 540 360 T 720 440"/>
+    <path d="M -40 440 Q 150 380 280 460 T 550 420 T 720 500"/>
+    <path d="M -40 500 Q 160 440 290 520 T 560 480 T 720 560"/>
+    <path d="M -40 560 Q 170 500 300 580 T 570 540 T 720 620"/>
+    <path d="M -40 620 Q 180 560 310 640 T 580 600 T 720 680"/>
+    <path d="M -40 680 Q 190 620 320 700 T 590 660 T 720 740"/>
+  </g>
+  <!-- GPS waypoint route -->
+  <g stroke="#9c7a2a" fill="none" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round">
+    <path d="M 60 760 L 200 600 L 340 540 L 480 380"/>
+  </g>
+  <g fill="#9c7a2a">
+    <circle cx="60" cy="760" r="3.4"/>
+    <circle cx="200" cy="600" r="3.4"/>
+    <circle cx="340" cy="540" r="3.4"/>
+    <circle cx="480" cy="380" r="3.4"/>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- Section 3 — dual rounded ridges (twin peaks). Accent: aerial pin marking the saddle. -->
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+    <path d="M -20 700 Q 80 580 170 600 Q 230 540 280 540 Q 340 540 380 600 Q 480 580 620 700"/>
+    <path d="M -20 660 Q 80 540 170 560 Q 230 500 280 500 Q 340 500 380 560 Q 480 540 620 660"/>
+    <path d="M -20 620 Q 80 500 170 520 Q 230 460 280 460 Q 340 460 380 520 Q 480 500 620 620"/>
+    <path d="M -20 580 Q 80 460 170 480 Q 230 420 280 420 Q 340 420 380 480 Q 480 460 620 580"/>
+    <path d="M 40 540 Q 110 440 170 450 Q 230 400 280 400 Q 340 400 380 450 Q 440 440 540 540"/>
+    <path d="M 80 500 Q 130 420 175 430 Q 230 380 280 380 Q 340 380 380 430 Q 430 420 500 500"/>
+    <path d="M 120 460 Q 150 400 180 405 Q 230 360 280 360 Q 340 360 380 405 Q 410 400 460 460"/>
+    <ellipse cx="200" cy="420" rx="42" ry="22"/>
+    <ellipse cx="358" cy="380" rx="42" ry="22"/>
+  </g>
+  <!-- saddle pin -->
+  <g stroke="#9c7a2a" stroke-width="1.2" fill="none">
+    <line x1="280" y1="420" x2="280" y2="500"/>
+  </g>
+  <circle cx="280" cy="416" r="4" fill="#9c7a2a"/>
+  <circle cx="280" cy="416" r="10" fill="none" stroke="#9c7a2a" stroke-width="1" opacity=".55"/>
+</svg>

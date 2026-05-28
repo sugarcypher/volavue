@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- Section 6 — broad aerial sweep, three island ridges. Accent: small bearing marks (compass ticks). -->
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
+    <ellipse cx="160" cy="320" rx="120" ry="78"/>
+    <ellipse cx="160" cy="320" rx="86"  ry="56"/>
+    <ellipse cx="160" cy="320" rx="50"  ry="32"/>
+    <ellipse cx="160" cy="320" rx="20"  ry="12"/>
+    <ellipse cx="410" cy="520" rx="160" ry="106"/>
+    <ellipse cx="410" cy="520" rx="118" ry="76"/>
+    <ellipse cx="410" cy="520" rx="76"  ry="48"/>
+    <ellipse cx="410" cy="520" rx="34"  ry="22"/>
+    <ellipse cx="200" cy="740" rx="100" ry="64"/>
+    <ellipse cx="200" cy="740" rx="68"  ry="42"/>
+    <ellipse cx="200" cy="740" rx="36"  ry="22"/>
+  </g>
+  <!-- compass bearing marks around section center -->
+  <g stroke="#9c7a2a" stroke-width="1" opacity=".85">
+    <line x1="300" y1="60"  x2="300" y2="78"/>
+    <line x1="540" y1="450" x2="558" y2="450"/>
+    <line x1="300" y1="822" x2="300" y2="840"/>
+    <line x1="42"  y1="450" x2="60"  y2="450"/>
+  </g>
+  <circle cx="300" cy="450" r="3" fill="#9c7a2a"/>
+  <circle cx="300" cy="450" r="14" fill="none" stroke="#9c7a2a" stroke-width=".8" opacity=".55"/>
+</svg>

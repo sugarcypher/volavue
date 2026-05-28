@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- Section 5 — narrowing path between converging contour ridges. Accent: a destination diamond ahead. -->
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
+    <path d="M -20 200 Q 90 320 180 400 T 360 560 T 620 740"/>
+    <path d="M -20 240 Q 90 360 180 440 T 360 600 T 620 780"/>
+    <path d="M -20 280 Q 90 400 180 480 T 360 640 T 620 820"/>
+    <path d="M -20 320 Q 90 440 180 520 T 360 680 T 620 860"/>
+    <path d="M -20 360 Q 90 480 180 560 T 360 720 T 620 900"/>
+    <path d="M 620 200 Q 510 320 420 400 T 240 560 T -20 740"/>
+    <path d="M 620 240 Q 510 360 420 440 T 240 600 T -20 780"/>
+    <path d="M 620 280 Q 510 400 420 480 T 240 640 T -20 820"/>
+    <path d="M 620 320 Q 510 440 420 520 T 240 680 T -20 860"/>
+  </g>
+  <!-- center corridor accent -->
+  <g stroke="#9c7a2a" fill="none" stroke-width="1.2" stroke-dasharray="3 5" opacity=".9">
+    <path d="M 300 820 Q 300 600 300 380"/>
+  </g>
+  <!-- destination diamond -->
+  <g transform="translate(300 320) rotate(45)" stroke="#9c7a2a" stroke-width="1.4" fill="none">
+    <rect x="-7" y="-7" width="14" height="14"/>
+  </g>
+</svg>

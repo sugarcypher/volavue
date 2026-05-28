@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- Section 4 — five-node graph from above on contour bed (echoes the topology diagram). -->
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".45">
+    <ellipse cx="300" cy="450" rx="320" ry="320"/>
+    <ellipse cx="300" cy="450" rx="260" ry="260"/>
+    <ellipse cx="300" cy="450" rx="200" ry="200"/>
+    <ellipse cx="300" cy="450" rx="142" ry="142"/>
+    <ellipse cx="300" cy="450" rx="86" ry="86"/>
+    <ellipse cx="300" cy="450" rx="36" ry="36"/>
+  </g>
+  <!-- Pentagon graph -->
+  <g stroke="currentColor" stroke-width=".9" opacity=".55" fill="none">
+    <line x1="300" y1="220" x2="510" y2="365"/>
+    <line x1="300" y1="220" x2="430" y2="608"/>
+    <line x1="300" y1="220" x2="170" y2="608"/>
+    <line x1="300" y1="220" x2="90"  y2="365"/>
+    <line x1="510" y1="365" x2="430" y2="608"/>
+    <line x1="510" y1="365" x2="170" y2="608"/>
+    <line x1="510" y1="365" x2="90"  y2="365"/>
+    <line x1="430" y1="608" x2="170" y2="608"/>
+    <line x1="430" y1="608" x2="90"  y2="365"/>
+    <line x1="170" y1="608" x2="90"  y2="365"/>
+  </g>
+  <g stroke="#9c7a2a" stroke-width="1.2" fill="#f3efe6">
+    <circle cx="300" cy="220" r="6"/>
+    <circle cx="510" cy="365" r="6"/>
+    <circle cx="430" cy="608" r="6"/>
+    <circle cx="170" cy="608" r="6"/>
+    <circle cx="90"  cy="365" r="6"/>
+  </g>
+</svg>
