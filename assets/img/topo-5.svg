@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
   <!-- Section 5 — narrowing path between converging contour ridges. Accent: a destination diamond ahead. -->
-  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
+  <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
     <path d="M -20 200 Q 90 320 180 400 T 360 560 T 620 740"/>
     <path d="M -20 240 Q 90 360 180 440 T 360 600 T 620 780"/>
     <path d="M -20 280 Q 90 400 180 480 T 360 640 T 620 820"/>

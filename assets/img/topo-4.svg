@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
   <!-- Section 4 — five-node graph from above on contour bed (echoes the topology diagram). -->
-  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".45">
+  <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".8">
     <ellipse cx="300" cy="450" rx="320" ry="320"/>
     <ellipse cx="300" cy="450" rx="260" ry="260"/>
     <ellipse cx="300" cy="450" rx="200" ry="200"/>
@@ -9,7 +9,7 @@
     <ellipse cx="300" cy="450" rx="36" ry="36"/>
   </g>
   <!-- Pentagon graph -->
-  <g stroke="currentColor" stroke-width=".9" opacity=".55" fill="none">
+  <g stroke="currentColor" stroke-width=".9" opacity=".88" fill="none">
     <line x1="300" y1="220" x2="510" y2="365"/>
     <line x1="300" y1="220" x2="430" y2="608"/>
     <line x1="300" y1="220" x2="170" y2="608"/>

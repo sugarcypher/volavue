@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
   <!-- Section 3 — dual rounded ridges (twin peaks). Accent: aerial pin marking the saddle. -->
-  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+  <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".88">
     <path d="M -20 700 Q 80 580 170 600 Q 230 540 280 540 Q 340 540 380 600 Q 480 580 620 700"/>
     <path d="M -20 660 Q 80 540 170 560 Q 230 500 280 500 Q 340 500 380 560 Q 480 540 620 660"/>
     <path d="M -20 620 Q 80 500 170 520 Q 230 460 280 460 Q 340 460 380 520 Q 480 500 620 620"/>
@@ -16,5 +16,5 @@
     <line x1="280" y1="420" x2="280" y2="500"/>
   </g>
   <circle cx="280" cy="416" r="4" fill="#9c7a2a"/>
-  <circle cx="280" cy="416" r="10" fill="none" stroke="#9c7a2a" stroke-width="1" opacity=".55"/>
+  <circle cx="280" cy="416" r="10" fill="none" stroke="#9c7a2a" stroke-width="1.8" opacity=".88"/>
 </svg>

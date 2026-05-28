@@ -188,18 +188,18 @@ h1,h2,h3,.display{
 .sec-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,216px) minmax(0,1fr);gap:clamp(28px,6vw,84px)}
 .sec-head{position:relative}
 
-/* parallax aerial-map background, left ~44% of section */
+/* parallax aerial-map background, left ~48% of section */
 .sec-bg{
-  position:absolute;left:0;top:-14%;height:128%;width:44%;
-  background-repeat:no-repeat;background-position:center;background-size:cover;
-  color:#7a6d4d;
-  opacity:.42;
+  position:absolute;left:-2%;top:-14%;height:128%;width:48%;
+  background-repeat:no-repeat;background-position:left center;background-size:cover;
+  color:#3e3826;
+  opacity:.78;
   pointer-events:none;z-index:0;
   will-change:transform;
-  mask-image:linear-gradient(to right,#000 55%,transparent 96%);
-  -webkit-mask-image:linear-gradient(to right,#000 55%,transparent 96%);
+  mask-image:linear-gradient(to right,#000 0%,#000 60%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 60%,transparent 100%);
 }
-:root.dark .sec-bg{color:#a79f8a;opacity:.34}
+:root.dark .sec-bg{color:#cfc6ad;opacity:.55}
 @media (max-width:860px){.sec-bg{display:none}}
 
 .sec-num{font-family:'Fraunces',serif;font-size:clamp(3rem,5vw,4.3rem);font-weight:400;line-height:.9;display:block}

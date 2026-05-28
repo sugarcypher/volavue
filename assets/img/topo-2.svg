@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
   <!-- Section 2 — paired ridges, contour valley between them. Accent: a dotted GPS waypoint route -->
-  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
+  <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
     <path d="M -40 260 Q 120 200 250 280 T 520 240 T 720 320"/>
     <path d="M -40 320 Q 130 260 260 340 T 530 300 T 720 380"/>
     <path d="M -40 380 Q 140 320 270 400 T 540 360 T 720 440"/>
